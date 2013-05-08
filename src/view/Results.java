@@ -5,6 +5,7 @@
 package view;
 
 import controller.PDFGenerator;
+import java.util.Date;
 
 /**
  *
@@ -15,10 +16,17 @@ public class Results extends javax.swing.JFrame {
     /**
      * Creates new form Results
      */
+    private Date date;
+    
+    
     public Results() {
         initComponents();
     }
-
+    public Results(Date d) {
+        initComponents();
+        this.date = d ;
+       
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -86,6 +94,10 @@ public class Results extends javax.swing.JFrame {
         pdfg.generate();
     }//GEN-LAST:event_btnExportActionPerformed
 
+    private void  imprimirResultados(){
+        
+    
+    }
     /**
      * @param args the command line arguments
      */

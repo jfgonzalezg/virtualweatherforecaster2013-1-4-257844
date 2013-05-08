@@ -41,6 +41,7 @@ public class Report extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         txtCurrent = new javax.swing.JTextArea();
         jButton1 = new javax.swing.JButton();
+        jDate = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -121,7 +122,8 @@ public class Report extends javax.swing.JFrame {
                                         .addGap(18, 18, 18)
                                         .addComponent(btnDeleteAll))
                                     .addComponent(txtWeather, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtValues, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(txtValues, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jDate, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(jScrollPane1)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
@@ -133,7 +135,9 @@ public class Report extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(39, 39, 39)
+                .addGap(8, 8, 8)
+                .addComponent(jDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblWeather)
                     .addComponent(txtWeather, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -154,6 +158,10 @@ public class Report extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(39, 39, 39))
         );
+
+        jDate.setDateFormatString("   dd / MMMMM / yyyy ");
+        java.util.Date datenow = new java.util.Date();
+        jDate.setDate( datenow);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -190,7 +198,7 @@ public class Report extends javax.swing.JFrame {
         try {
             int value = Integer.parseInt(txtValues.getText());
             Algorithms.setValueForecast(value);
-            Results report = new Results();
+            Results report = new Results(jDate.getDate());
             report.setVisible(true);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Formato de número no válido en 'Values to Forecast'. Intente de nuevo.", "Error", JOptionPane.ERROR_MESSAGE);
@@ -238,6 +246,7 @@ public class Report extends javax.swing.JFrame {
     private javax.swing.JButton btnDeleteLast;
     private javax.swing.JButton btnForecast;
     private javax.swing.JButton jButton1;
+    private com.toedter.calendar.JDateChooser jDate;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblValues;
     private javax.swing.JLabel lblWeather;
