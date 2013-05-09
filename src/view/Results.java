@@ -4,8 +4,15 @@
  */
 package view;
 
+import controller.Algorithms;
+import controller.Control;
 import controller.PDFGenerator;
+import static java.awt.image.ImageObserver.WIDTH;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
+import model.Data;
+import model.VWFSystem;
 
 /**
  *
@@ -18,6 +25,9 @@ public class Results extends javax.swing.JFrame {
      */
     private Date date;
     
+    private VWFSystem vwf;
+    private ArrayList<Data> forr;
+    
     
     public Results() {
         initComponents();
@@ -25,6 +35,8 @@ public class Results extends javax.swing.JFrame {
     public Results(Date d) {
         initComponents();
         this.date = d ;
+        
+        this.vwf = Control.getVwfs();
        
     }
     /**
@@ -96,7 +108,12 @@ public class Results extends javax.swing.JFrame {
 
     private void  imprimirResultados(){
         
-        
+        forr = Algorithms.sma(vwf.getTemps());
+        for (Iterator<Data> it = forr.iterator(); it.hasNext();) {
+            Data data = it.next();
+            jTextArea1.setText(jTextArea1.getText()+data.getTemperature()+"/n");
+        }
+
     
     }
     
