@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Javier
+ * @author Ivan C
  */
 public class VWFSystem {
 

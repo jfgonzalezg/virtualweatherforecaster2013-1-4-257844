@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Javier
+ * @author David
  */
 public class Report extends javax.swing.JFrame {
 

@@ -9,7 +9,7 @@ import model.Data;
 
 /**
  *
- * @author Javier
+ * @author David
  */
 public class Algorithms {
 
@@ -18,6 +18,7 @@ public class Algorithms {
     // Método que determina si es posible hacer la predicción.
     // Se necesitan al menos 5 datos.
     public static boolean verifyData(ArrayList<Data> temps) {
+        boolean b;
         if (temps.size() <= 4) {
             return false;
         } else {
@@ -34,8 +35,10 @@ public class Algorithms {
     }
 
     // Double Moving Average(DMA)
-    public static double dma(ArrayList<Data> temps) {
-        return 0.0;
+    public static ArrayList<Data> dma(ArrayList<Data> temps) {
+        DMA dma=new DMA(temps);
+        
+        return dma.forecastdma(getValueForecast());
     }
 
     // Exponential Smoothing (ES)
@@ -46,7 +49,8 @@ public class Algorithms {
     }
 
     //Double Exponential Smoothing (DES)
-    public static double des(ArrayList<Data> temps) {
+    public static double des(ArrayList<Data> temps,double alpha, double betha) {
+        
         return 0.0;
     }
 

@@ -9,14 +9,14 @@ import model.Data;
 
 /**
  *
- * @author David
+ * @author John F
  */
-public class SMA {
-
+public class DMA {
+    
     private ArrayList<Data> data = new ArrayList();
     private double med = 0.0;
 
-    public SMA(ArrayList<Data> temps) {
+    public DMA(ArrayList<Data> temps) {
         data = temps;
         average();
 
@@ -33,8 +33,9 @@ public class SMA {
         med = sum / (data.size());
     }
 
-    public ArrayList<Data> forecastsma(int numDat) {
+    public ArrayList<Data> forecastdma(int numDat) {
         ArrayList<Data> futureData = new ArrayList();
+        ArrayList<Data> dma=new ArrayList();
 
         double yest = med;
         for (int i = 0; i < numDat; i++) {
@@ -44,6 +45,14 @@ public class SMA {
             futureData.add(today);
             yest = today.getTemperature();
         }
-        return futureData;
+        
+        for(int i=0;i<numDat;i++){
+            double pm=(futureData.get(i).getTemperature()+futureData.get(i-1).getTemperature())/data.size();
+            Data today=new Data(yest-pm);
+            dma.add(today);
+        }
+        
+        return dma;
     }
+    
 }

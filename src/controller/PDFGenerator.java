@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Javier
+ * @author David
  */
 public class PDFGenerator {
 

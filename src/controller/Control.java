@@ -9,7 +9,7 @@ import model.VWFSystem;
 
 /**
  *
- * @author Javier
+ * @author David
  */
 public class Control {
 

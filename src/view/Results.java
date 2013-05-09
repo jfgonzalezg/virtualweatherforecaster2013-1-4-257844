@@ -9,7 +9,7 @@ import java.util.Date;
 
 /**
  *
- * @author Javier
+ * @author John F
  */
 public class Results extends javax.swing.JFrame {
 
@@ -96,8 +96,10 @@ public class Results extends javax.swing.JFrame {
 
     private void  imprimirResultados(){
         
+        
     
     }
+    
     /**
      * @param args the command line arguments
      */
