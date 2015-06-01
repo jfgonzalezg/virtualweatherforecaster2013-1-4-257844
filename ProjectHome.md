@@ -1,0 +1,1 @@
+This practice seeks to reach basic handling of git, plus a quality development.
